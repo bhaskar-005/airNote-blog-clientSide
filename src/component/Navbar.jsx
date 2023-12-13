@@ -3,6 +3,7 @@ import {Logo ,Button,SearchInput} from '../index'
 import { navLinks } from '../data';
 import {cross, menu,search} from '../assets/assets'
 import {useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [nav ,setnav] = useState(false);
@@ -28,12 +29,12 @@ const Navbar = () => {
         <ul className='flex gap-10 items-center justify-center text-third_colour '>
            { //navbar links
            navLinks.map((items)=>(
-            <a href = {items.link} 
+            <Link to = {items.link} 
               key={items.id} 
               id={items.id} 
               className='text-[16px] font-medium hover:text-first_colour'>
                 <li >{items.title}</li>
-            </a>  
+            </Link>  
             ))}
         </ul>
        )
@@ -47,7 +48,7 @@ const Navbar = () => {
             userStatus ? ( 
               <div className='flex gap-4'>
                 <Button text={'create »'} path={'/createpost'}/> 
-                <a href="/profile">
+                <Link to="/profile">
                <div className='flex items-center gap-2 pl-4 profile rounded-full p-[2px] cursor-pointer '>
                 <p className='text-second_colour font-[500]'>Profile</p>
                 <div className='w-[30px] h-[30px] rounded-full overflow-hidden '>
@@ -55,9 +56,9 @@ const Navbar = () => {
                        className='w-full h-full object-cover justify-center'
                        src={userdata.profilePhoto} 
                        alt="profile" />   {/* panding to add profile */}
-                </div>
+                </div> 
              </div>
-             </a>
+             </Link>
              </div>
             ):(
             <div className='flex  gap-3'>
@@ -72,7 +73,7 @@ const Navbar = () => {
         <div className="sm:hidden flex gap-6 items-center">
           {
         userStatus ? ( 
-          <a href="/profile">
+          <Link to="/profile">
                <div className='flex items-center gap-2 pl-4 profile rounded-full p-[2px] cursor-pointer '>
                 <p className='text-second_colour font-[500]'>Profile</p>
                 <div className='w-[30px] h-[30px] rounded-full overflow-hidden '>
@@ -82,7 +83,7 @@ const Navbar = () => {
                        alt="profile" />   
                 </div>
              </div>
-             </a>
+             </Link>
              
             ):(
         <Button text={'Sign up'} path ={'/signup'} className={'py-[4px]'}/>
@@ -100,12 +101,12 @@ const Navbar = () => {
                       <SearchInput/>
                       { //navbar links
                       navLinks.map((items)=>(
-                       <a href = {items.link} 
+                       <Link to = {items.link} 
                          key={items.id} 
                          id={items.id} 
                          className='text-[16px] font-medium text-white'>
                            <li >{items.title}</li>
-                       </a>  
+                       </Link>  
                    ))}
                      </ul>
             <div className='flex gap-4 m-[24px] item-center justify-center'>
