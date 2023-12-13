@@ -1,0 +1,303 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+
+._nav {
+  box-shadow: 0 10px 5px -5px #0d243611;
+}
+.input{
+  border: 0.4px solid #183b5661;
+  border-radius: 6px;
+  padding-left: 10px;
+}
+
+.borders{
+  border: 0.4px solid #183b562c;
+  border-radius: 6px;
+
+}
+.borders2{
+  border: 0.4px solid #183b56a2;
+  border-radius: 6px;
+
+}
+.min-hight{
+  min-height: 500px;
+}
+
+.input[type=text]:focus{
+  border: 0.4px solid #1565D8;
+}
+
+.whiteSvg{
+  filter: invert(100%)
+}
+
+.shadow{
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
+}
+
+.hover_effect:hover{
+  transform: translateY(-6px);
+  transition: 0.8s;
+}
+.shadow2{
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.profile{
+   border: solid rgba(0, 0, 0, 0.188) 0.4px;
+}
+.profile:hover{
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.zindex{
+  z-index: 1000;
+}
+
+
+
+
+
+
+
+/* styles.css or your stylesheet */
+.browser-css h1 {
+  font-size: 2.25rem; /* Equivalent to text-4xl in Tailwind CSS */
+  font-weight: 800;   /* Equivalent to font-extrabold in Tailwind CSS */
+  margin-bottom: 1rem;
+}
+
+.browser-css h2 {
+  font-size: 1.875rem; /* Equivalent to text-3xl in Tailwind CSS */
+  font-weight: 700;    /* Equivalent to font-bold in Tailwind CSS */
+  margin-bottom: 1rem;
+}
+
+.browser-css h3 {
+  font-size: 1.5rem;  /* Equivalent to text-2xl in Tailwind CSS */
+  font-weight: 600;   /* Equivalent to font-semibold in Tailwind CSS */
+  margin-bottom: 1rem;
+}
+
+.browser-css h4 {
+  font-size: 1.25rem; /* Equivalent to text-xl in Tailwind CSS */
+  font-weight: 600;   /* Equivalent to font-semibold in Tailwind CSS */
+  margin-bottom: 1rem;
+}
+
+.browser-css h5 {
+  font-size: 1.125rem; /* Equivalent to text-lg in Tailwind CSS */
+  font-weight: 600;    /* Equivalent to font-semibold in Tailwind CSS */
+  margin-bottom: 1rem;
+}
+
+.browser-css h6 {
+  font-size: 1rem;    /* Equivalent to text-base in Tailwind CSS */
+  font-weight: 600;   /* Equivalent to font-semibold in Tailwind CSS */
+  margin-bottom: 1rem;
+}
+
+.browser-css p {
+  font-size: 1.2rem;    /* Equivalent to text-base in Tailwind CSS */
+  margin-bottom: 1rem;
+}
+
+.browser-css li {
+  font-size: 1.2rem;    /* Equivalent to text-base in Tailwind CSS */
+  color: #4a5568;     /* Equivalent to text-gray-700 in Tailwind CSS */
+  margin-bottom: 0.25rem;
+}
+
+.browser-css a {
+  color: #0023be;     /* Equivalent to text-blue-500 in Tailwind CSS */
+  text-decoration: underline; /* Equivalent to underline in Tailwind CSS */
+  transition: color 0.3s ease; /* Equivalent to transition in Tailwind CSS */
+}
+
+.browser-css a:hover {
+  color: #112e8b;     /* Equivalent to text-blue-700 in Tailwind CSS */
+}
+.browser-css pre{
+   margin-top: 2rem;
+   margin-bottom: 2rem;
+   border-radius: 7px;
+   background-color: #1a1a1a; /* Dark background color */
+   padding: 10px;
+}
+.browser-css code {
+  font-family: 'Courier New', monospace; /* Equivalent to font-mono in Tailwind CSS */
+  background-color: #1a1a1afc; /* Dark background color */
+  padding: 5px;
+  font-size: 1.1rem; /* Equivalent to text-base in Tailwind CSS */
+  color: #c5c8c6; /* Light gray text color */
+  border-radius: 0.25rem; /* Equivalent to rounded in Tailwind CSS */
+  font-weight: 500;
+}
+
+/* Table Styles */
+.browser-css table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 0.3px solid rgba(0, 0, 0, 0.195);
+}
+
+.browser-css th,
+.browser-css td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0; /* Border color between rows */
+  border-left: 1px solid #e2e8f0; /* Border color on the left */
+  border-right: 1px solid #e2e8f0; /* Border color on the right */
+}
+
+/* Header Row Styles */
+.browser-css th {
+  background-color: #f2f2f2; /* Header background color */
+}
+
+/* Alternating Row Colors */
+.browser-css tr:nth-child(even) {
+  background-color: #f8fafc; /* Even row background color */
+}
+
+/* Hover Effect */
+.browser-css tbody tr:hover {
+  background-color: #ebf4ff; /* Hovered row background color */
+}
+/* List Styles */
+.browser-css ol,
+.browser-css ul {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem; /* Adjust the padding for list items */
+}
+
+.browser-css li {
+  margin-bottom: 0.5rem; /* Adjust the margin between list items */
+  line-height: 1.5; /* Adjust the line height for better readability */
+}
+
+/* Nested List Styles */
+.browser-css ol ol,
+.browser-css ul ul {
+  margin-top: 0.5rem; /* Adjust the margin for nested lists */
+}
+
+/* List Item Styles */
+.browser-css ul {
+  list-style-type: disc; /* Unordered list style type - disc, circle, square */
+}
+
+.browser-css ol {
+  list-style-type: decimal; /* Ordered list style type - decimal, decimal-leading-zero, lower-roman, upper-roman, lower-alpha, upper-alpha */
+}
+
+/* Definition List Styles */
+.browser-css dl {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.browser-css dt,
+.browser-css dd {
+  padding: 0.5rem;
+}
+
+
+
+/* for small screens  */
+
+/* Media query for medium screens */
+@media (max-width: 768px) {
+  .browser-css h1 {
+    font-size: 1.875rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .browser-css h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .browser-css h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .browser-css p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Media query for small screens (e.g., mobile) */
+@media (max-width: 640px) {
+  .browser-css h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .browser-css h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .browser-css h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .browser-css h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .browser-css h5 {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .browser-css h6 {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .browser-css p {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .browser-css pre {
+    padding: 0.5rem;
+  }
+
+  .browser-css code {
+    font-size: 0.875rem;
+    padding: 0.25rem;
+  }
+  .browser-css li {
+    font-size: 1.1rem; 
+
+  }
+}
