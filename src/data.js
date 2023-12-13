@@ -45,7 +45,7 @@ export const navLinks = [
     {
       name: 'React',
       id: 1,
-      img: 'https://assets.stickpng.com/images/584830f5cef1014c0b5e4aa1.png'
+      img: 'https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png'
       ,link: 'https://react.dev/'
     },
     {

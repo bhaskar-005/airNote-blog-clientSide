@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Input, Button } from "../index";
 import { useForm } from "react-hook-form" //rect hook form
 import axios from 'axios'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //for tosts
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -60,7 +60,7 @@ const SignUp = () => {
           <Button text={'Register'} type="submit" className="h-[46px] bg-first_colour text-white rounded-[7px] mx-0 mt-[8px]"/>
         </form>
         
-        <p className="text-[15px]"> You have an account? <span className="text-first_colour font-[600]"><a href="/login"> Login now</a></span></p>
+        <p className="text-[15px]"> You have an account? <span className="text-first_colour font-[600]"> <Link to ={"/login"}> Login now</Link></span></p>
       </div>
     
     </div>

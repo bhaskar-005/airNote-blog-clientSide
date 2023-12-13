@@ -34,7 +34,7 @@ function App() {
         if (res.status === 200) {
           const decodedUserData = res.data.decoded;
           dispatch(login({userdata:decodedUserData}));
-         
+          console.log(res);
         }
       } catch (error) {
         console.error(error);

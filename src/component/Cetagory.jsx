@@ -1,5 +1,6 @@
 import React from "react";
 import { categoryData } from "../data";
+import { Link } from "react-router-dom";
 
 const Cetagory = ({ data }) => {
   return (
@@ -10,14 +11,14 @@ const Cetagory = ({ data }) => {
           {
             <div className="flex flex-wrap mt-4 items-center space-x-2 gap-3 max-w-[350px]">
               {categoryData?.map((text, index) => (
-                <a key={index} href={`/articles?search=${text.name}`} className="ml-2">
+                <Link key={index} to={`/articles?search=${text.name}`} className="ml-2">
                   <div
                     key={text.id}
                     className="bg-gray-300 px-3 py-1  borders2 bg-first_colour bg-opacity-0 hover:bg-opacity-10 text-second_colour text-[17px] font-[500] "
                   >
                     {text.name}
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           }
@@ -31,14 +32,14 @@ const Cetagory = ({ data }) => {
             {
               <div className="flex flex-wrap mt-4 items-center space-x-2 gap-3 max-w-[350px]">
                 {data?.map((text, index) => (
-                  <a key={index} href={`/articles?search=${text.name}`} className="ml-2">
+                  <Link key={index} to={`/articles?search=${text.name}`} className="ml-2">
                     <div
                       key={text.id}
                       className="bg-gray-300 px-3 py-1  borders2 bg-first_colour bg-opacity-0 hover:bg-opacity-10 text-second_colour text-[17px] font-[500] "
                     >
                       {text.name}
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             }

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import {login,logout} from '../redux/authSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Login = () => {
         if (res.status === 200) {
           dispatch(login(res.data.token));
           navigate('/');
-          window.location.reload(false);
+          // window.location.reload(false);
           toast.success(`Login successful`, {
             position: toast.POSITION.TOP_RIGHT,
           });
@@ -56,7 +56,7 @@ const Login = () => {
           <Button text={'Log In'} type="submit" className="h-[46px] bg-first_colour text-white rounded-[7px] mx-0 mt-[8px]"/>
         </form>
          
-        <p className="text-[15px]"> Don't have an account? <span className="text-first_colour font-[600]"><a href="/signup"> Sign Up</a></span></p>
+        <p className="text-[15px]"> Don't have an account? <span className="text-first_colour font-[600]"><Link to="/signup"> Sign Up</Link></span></p>
       
       <div className='bg-white rounded-md p-2 input'>
              <p className='text-third_colour font-[500] mb-1 text-[15px] opacity-90'>Test with our demo account</p>
