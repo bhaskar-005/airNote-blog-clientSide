@@ -85,7 +85,7 @@ const Navbar = () => {
              </a>
              
             ):(
-        <Button text={'Sign up'} path={'/signup'} className={'py-[4px]'}/>
+        <Button text={'Sign up'} path ={'/signup'} className={'py-[4px]'}/>
         )}
         <img unselectable="on" src={nav? cross:menu} className="h-[24px]" alt="manu" onClick={()=>setnav(!nav)}/>
         </div>
