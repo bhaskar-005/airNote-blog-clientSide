@@ -19,7 +19,7 @@ const Login = () => {
         if (res.status === 200) {
           dispatch(login(res.data.token));
           navigate('/');
-          // window.location.reload(false);
+          window.location.reload(false);
           toast.success(`Login successful`, {
             position: toast.POSITION.TOP_RIGHT,
           });
