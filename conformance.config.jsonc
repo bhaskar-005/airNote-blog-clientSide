@@ -1,0 +1,9 @@
+// conformance.config.jsonc
+
+{
+    "SET_COOKIE_VALIDATION": {
+      "cookieAllowList": ["token"]
+    }
+  
+  }
+  
