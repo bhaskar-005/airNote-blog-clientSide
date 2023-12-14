@@ -14,7 +14,10 @@ const Login = () => {
     const navigate = useNavigate();
     const onSubmit =async (data)=>{
       try {
-        const res = await axios.post(import.meta.env.VITE_URL+"/login",data,{withCredentials:true});
+        const res = await axios.post(import.meta.env.VITE_URL+"/login",data,{withCredentials:true} ,
+        {
+          credentials: "include"
+        });
           console.log(res);
         if (res.status === 200) {
           dispatch(login(res.data.token));
