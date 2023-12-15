@@ -37,7 +37,15 @@ const Article = () => {
 // for delete post 
   const handleRemove = async(id)=>{
     try {
-      const res = await axios.delete(`${import.meta.env.VITE_URL}/post/delete/${id}`,{withCredentials:true});
+      const storedToken = localStorage.getItem('token')
+      const res = await axios.delete(`${import.meta.env.VITE_URL}/post/delete/${id}`,
+      { 
+        headers: {
+          token: `${storedToken}`,
+        },
+        withCredentials: true
+      });
+
       if (res.status==200) {
         navigate('/articles')
         toast.success(`Blog removed.`, {

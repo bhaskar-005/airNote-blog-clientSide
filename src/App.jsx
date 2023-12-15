@@ -49,31 +49,33 @@ function App() {
 
    
   return (
-    <div>
+     <div>
       {
-        loading && <Loading/>
+        loading ? (<Loading/>):(
+          <><ToastContainer />
+          <Navbar />
+           <Routes>
+             <Route path="/" element={<Home />} />
+             <Route path="/login" element={<Login />} />
+             <Route path="/signup" element={<SignUp />} />
+             <Route path="/articles" element={<AllArticles />} />
+             <Route path="/article/:id" element={<Article />} />
+             <Route path="/about" element={<About />} />
+             <Route path='*' element={<NotFound />} />
+    
+             <Route path="/" element={ <PrivetRourtes/> }>
+                <Route path="createpost" element={<Create />} />
+                <Route path="edit/:id" element={<EditPost/>} />
+                <Route path="profile" element={<ProfilePage />} />
+             </Route>
+             
+             
+             
+          </Routes>
+          <Footer/></>
+        )
       }
-       <ToastContainer />
-      <Navbar />
-       <Routes>
-         <Route path="/" element={<Home />} />
-         <Route path="/login" element={<Login />} />
-         <Route path="/signup" element={<SignUp />} />
-         <Route path="/articles" element={<AllArticles />} />
-         <Route path="/article/:id" element={<Article />} />
-         <Route path="/about" element={<About />} />
-         <Route path='*' element={<NotFound />} />
-
-         <Route path="/" element={ <PrivetRourtes/> }>
-            <Route path="createpost" element={<Create />} />
-            <Route path="edit/:id" element={<EditPost/>} />
-            <Route path="profile" element={<ProfilePage />} />
-         </Route>
-         
-         
-         
-      </Routes>
-      <Footer/>
+     
     </div>
   );
 }
