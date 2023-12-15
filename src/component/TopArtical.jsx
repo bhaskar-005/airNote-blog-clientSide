@@ -1,14 +1,15 @@
 import React from 'react';
-import {Button} from '../index'
+import {Button,Loading} from '../index'
 import { stripHtml } from "string-strip-html";
 import { Link } from 'react-router-dom';
 
-const TopArticle = ({posts}) => {
-
+const TopArticle = ({posts,loading}) => {
+ 
   return (
+    
     <div className=" flex flex-col bg-[#f2faff] rounded-xl shadow py-8 gap-10">
-      <h1 className="text-[35px] text-center font-bold text-third_colour">Top Articles</h1>
-      <div className='flex flex-wrap sm:gap-8 gap-4 justify-center items-center '>
+    <h1 className="text-[35px] text-center font-bold text-third_colour">Top Articles</h1>
+    <div className='flex flex-wrap sm:gap-8 gap-4 justify-center items-center '>
         {posts.slice(0,4).map((data, index) => (
           <Link key={index} to={`/article/:${data._id}`}>
           <div key={index} className="w-[300px] min-h-[560px] rounded-xl overflow-hidden shadow bg-white cursor-pointer hover_effect">

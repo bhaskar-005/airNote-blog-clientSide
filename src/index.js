@@ -10,7 +10,7 @@ import SearchInput from "./component/SearchInput";
 import Tranding from "./component/Tranding";
 import Cetagory from "./component/Cetagory";
 import RTE from "./component/RTE";
-
+import Loading from "./component/Loading";
 
 export{
    Navbar,
@@ -25,5 +25,5 @@ export{
    Tranding,
    Cetagory,
    RTE,
-
+   Loading,
 } 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Cetagory } from "../index";
+import { Cetagory, Loading } from "../index";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { stripHtml } from "string-strip-html";
@@ -7,16 +7,18 @@ import { stripHtml } from "string-strip-html";
 const AllArticles = () => {
   const [loading, setloading] = useState(false);
   const [posts, setposts] = useState([]);
+  const [Nopost ,setNopost] = useState(null);
   //for fecth posts
   const fetchPost = async () => {
+    setloading(true);
     try {
-      setloading(true);
       const res = await axios.get(import.meta.env.VITE_URL + "/post");
       setposts(res.data.data);
-      setloading(false);
+      
     } catch (error) {
       console.error(error);
-    }
+    } 
+    setloading(false);
   };
 
   //for serch posts
@@ -29,10 +31,10 @@ const AllArticles = () => {
       const url = `${import.meta.env.VITE_URL}/post?search=${searchPath}`;
       const res = await axios.get(url);
       setposts(res.data.data);
-      setloading(false);
+      
     } catch (error) {
       console.error(error);
-    }
+  }
     setloading(false);
   };
   useEffect(() => {
@@ -43,25 +45,25 @@ const AllArticles = () => {
     searchPost();
   }, [path]);
 
+   
   return (
-    <div className="flex flex-col sm:flex-row justify-between sm:mx-28 mx-2 gap-[25px]">
-      <Cetagory />
+    <div>
       {posts.length === 0 && (
         <div className="text-[20px] font-[500] text-second_colour mt-[20px] min-hight ">
-          No blog found for "{path.search.slice(8)}"
+          No blog found for "{path.search.slice(8)}" or Loading..
         </div>
       )}
-
+   
       {loading ? (
-        <div className="mr-[400px] mt-5 text-[16px] text-second_colour font-[500] min-hight">
-          loading...
-        </div>
+        <Loading />
       ) : (
+        <div className="flex flex-col sm:flex-row justify-between sm:mx-28 mx-2 gap-[25px]">
+        <Cetagory />
         <div className="flex flex-col items-center gap-4 min-w-[200px] mt-5 min-hight">
           {posts.map((data, index) => (
             <Link
               key={index}
-              to={`/article/:${data._id}`}
+              to={`/article/${data._id}`}
               className="max-w-full"
             >
               <div className="flex flex-row max-w-full min-h-[100px] rounded-xl overflow-hidden shadow2 hover:bg-white">
@@ -102,10 +104,12 @@ const AllArticles = () => {
               </div>
             </Link>
           ))}
-        </div>
+        </div></div>
       )}
     </div>
   );
+  
+  
 };
 
 export default AllArticles;

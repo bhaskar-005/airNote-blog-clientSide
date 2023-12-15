@@ -18,9 +18,12 @@ const Login = () => {
         {
           credentials: "include"
         });
-          console.log(res);
+          
+
         if (res.status === 200) {
-          dispatch(login(res.data.token));
+          const token = res.data.token;
+          localStorage.setItem('token', token);
+          dispatch(login(token));
           navigate('/');
           window.location.reload(false);
           toast.success(`Login successful`, {

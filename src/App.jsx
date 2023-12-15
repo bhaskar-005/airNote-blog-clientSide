@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-import { Navbar ,Footer} from "./index";
+import { Navbar ,Footer, Loading} from "./index";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
@@ -23,29 +23,36 @@ import PrivetRourtes from "./pages/PrivetRourtes";
 
 
 function App() {
-
+    const [loading ,setloading] = useState(false);
     //to refecth user on reload
     const dispatch = useDispatch();
   
     const fetchUser = async () => {
+      setloading(true)
       try {
-        const res = await axios.get(import.meta.env.VITE_URL + "/refetch", { withCredentials: true });
+        const storedToken = localStorage.getItem('token'); 
+  
+        const res = await axios.post(import.meta.env.VITE_URL + "/refetch",{ token: storedToken.toString() } , { withCredentials: true } );
         
         if (res.status === 200) {
           const decodedUserData = res.data.decoded;
           dispatch(login({userdata:decodedUserData}));
-          console.log(res);
         }
       } catch (error) {
         console.error(error);
       }
+      setloading(false);
     };
     useEffect(() => {
       fetchUser();
     }, []);
 
+   
   return (
     <div>
+      {
+        loading && <Loading/>
+      }
        <ToastContainer />
       <Navbar />
        <Routes>

@@ -49,10 +49,16 @@ const Create = () => {
 
     // Sending data to the backend
     try {
+      const storedToken = localStorage.getItem('token')
       const res = await axios.post(
         import.meta.env.VITE_URL + "/post/createpost",
         formData,
-        { withCredentials: true }
+        { 
+          headers: {
+            token: `${storedToken}`,
+          },
+          withCredentials: true
+        }
       );
 
       if (res.status === 200) {

@@ -15,7 +15,14 @@ const ProfilePage = () => {
    // for fatching userinfo 
     const getProfileData = async()=>{
         try {
-          const req = await axios.get(`${import.meta.env.VITE_URL}//profile/${userdata.id}`,{withCredentials:true}) 
+          const storedToken = localStorage.getItem('token')
+          const req = await axios.get(`${import.meta.env.VITE_URL}/profile/${userdata.id}`,
+          { 
+            headers: {
+              token: `${storedToken}`,
+            },
+            withCredentials: true
+          }) 
           setdata(req.data.findUser);
            
         } catch (error) {
@@ -25,6 +32,7 @@ const ProfilePage = () => {
     //logout function
     const handleLogout = async()=>{
         try {
+          localStorage.clear();
           const req = await axios.get(`${import.meta.env.VITE_URL}/logout`,{withCredentials:true});
           if (req.status ==200){
             navigate('/');

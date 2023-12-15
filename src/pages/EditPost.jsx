@@ -70,10 +70,16 @@ const EditPost = () => {
 
     // Sending data to the backend
     try {
+      const storedToken = localStorage.getItem('token')
       const res = await axios.put(
         `${import.meta.env.VITE_URL}/post/update/${post._id}`,
         formData,
-        { withCredentials: true, headers }
+        { 
+          headers: {
+            token: `${storedToken}`,
+          },
+          withCredentials: true
+        }
       );
 
       if (res.status === 200) {

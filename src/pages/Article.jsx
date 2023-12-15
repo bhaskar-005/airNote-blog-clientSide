@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import parse from "html-react-parser";
-import { Cetagory } from "../index";
+import { Cetagory, Loading } from "../index";
 import { useSelector } from "react-redux";
 import { dotsicon, trash, update } from "../assets/assets";
 import {toast} from 'react-toastify';
@@ -20,7 +20,7 @@ const Article = () => {
   const userStatus = useSelector((state) => state.isLogin.userdata);
   const fetchPost = async () => {
     try {
-      const url = `${import.meta.env.VITE_URL}/post/${id.slice(1)}`;
+      const url = `${import.meta.env.VITE_URL}/post/${id}`;
       const res = await axios.get(url);
       setPost(res.data.getpost);
     } catch (error) {
@@ -32,10 +32,7 @@ const Article = () => {
     fetchPost();
   }, [id]);
 
-  // Check if post is still loading
-  if (!post) {
-    return <p className="min-h-[500px] text-center text-[18px]">Loading..</p>;
-  }
+
 
 // for delete post 
   const handleRemove = async(id)=>{
@@ -58,6 +55,10 @@ const Article = () => {
     navigate(`/edit/${id}`);
   }
 
+     // Check if post is still loading
+  if (!post) {
+    return <Loading/>
+  }
 
   return (
     <div className="flex justify-around sm:mx-28 mx-2 ">
