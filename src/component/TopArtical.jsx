@@ -11,7 +11,7 @@ const TopArticle = ({posts,loading}) => {
     <h1 className="text-[35px] text-center font-bold text-third_colour">Top Articles</h1>
     <div className='flex flex-wrap sm:gap-8 gap-4 justify-center items-center '>
         {posts.slice(0,4).map((data, index) => (
-          <Link key={index} to={`/article/:${data._id}`}>
+          <Link key={index} to={`/article/${data._id}`}>
           <div key={index} className="w-[300px] min-h-[560px] rounded-xl overflow-hidden shadow bg-white cursor-pointer hover_effect">
             <img className=" h-[300px] w-[360px] object-cover object-center" src={data.image} alt={data.title} />
             <div className='m-[15px] flex flex-col gap-4 mb-[20px]'>
