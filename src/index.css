@@ -140,17 +140,19 @@ body{
    margin-top: 2rem;
    margin-bottom: 2rem;
    border-radius: 7px;
-   background-color: #1a1a1a; /* Dark background color */
+   background-color: #eeeeee; /* Dark background color */
    padding: 10px;
+   border: 0.4px solid rgba(0, 0, 0, 0.279);
 }
 .browser-css code {
   font-family: 'Courier New', monospace; /* Equivalent to font-mono in Tailwind CSS */
-  background-color: #1a1a1afc; /* Dark background color */
+  background-color: #eeeeee; /* Dark background color */
   padding: 5px;
-  font-size: 1.1rem; /* Equivalent to text-base in Tailwind CSS */
-  color: #c5c8c6; /* Light gray text color */
+  font-size: 1.2rem; /* Equivalent to text-base in Tailwind CSS */
+  color: #161b19; /* Light gray text color */
+  font-weight: 600;
   border-radius: 0.25rem; /* Equivalent to rounded in Tailwind CSS */
-  font-weight: 500;
+ 
 }
 
 /* Table Styles */
