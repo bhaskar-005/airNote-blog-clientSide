@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import MaxWidthWrapper from "../component/MaxWidthWrapper";
 
 const Create = () => {
   const { register, handleSubmit } = useForm();
@@ -102,6 +103,7 @@ const Create = () => {
   };
 
   return (
+    <MaxWidthWrapper>
     <div className="flex flex-col sm:flex-row justify-between sm:mx-28 mx-2 relative">
       {loader == true && (
         <div class="absolute bg-white bg-opacity-80 z-10 h-full w-full flex items-center justify-center">
@@ -263,6 +265,7 @@ const Create = () => {
         </form>
       </div>
     </div>
+    </MaxWidthWrapper>
   );
 };
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div className='min-h-[500px]'>
-    <div className="loader ">
+    <div className='min-h-screen mix-w-screen relative '>
+    <div className=" absolute loader">
     </div>
   </div>
   );

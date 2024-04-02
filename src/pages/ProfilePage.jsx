@@ -4,6 +4,7 @@ import { logout, trash } from '../assets/assets';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import {useNavigate } from 'react-router-dom';
+import MaxWidthWrapper from '../component/MaxWidthWrapper';
 
 
 const ProfilePage = () => {
@@ -51,6 +52,7 @@ const ProfilePage = () => {
   }
 
   return (
+    <MaxWidthWrapper>
     <div className=' flex min-h-[600px] justify-center '>
        <div className='bg-first bg-white mt-8 flex flex-col gap-10 sm:p-10 p-6 rounded-[7px] shadow border1'>
         <div className='flex justify-center items-center'>
@@ -84,6 +86,7 @@ const ProfilePage = () => {
         
        </div>
     </div>
+    </MaxWidthWrapper>
   );
 }
 

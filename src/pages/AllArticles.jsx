@@ -1,56 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Cetagory, Loading } from "../index";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { stripHtml } from "string-strip-html";
+import { useDispatch, useSelector } from "react-redux";
+import { setBlogdata } from "../redux/blogSlice";
+import MaxWidthWrapper from "../component/MaxWidthWrapper";
 
 const AllArticles = () => {
   const [loading, setloading] = useState(false);
-  const [posts, setposts] = useState([]);
-  const [Nopost ,setNopost] = useState(null);
-  //for fecth posts
-  const fetchPost = async () => {
-    setloading(true);
-    try {
-      const res = await axios.get(import.meta.env.VITE_URL + "/post");
-      setposts(res.data.data);
-      
-    } catch (error) {
-      console.error(error);
-    } 
-    setloading(false);
-  };
+  const [search ,setSearch] = useState(null);
+  const {blogdata} = useSelector((state)=>state.blogData);
+  const dispatch = useDispatch();
 
   //for serch posts
   const path = useLocation();
-
   const searchPost = async () => {
+    if (blogdata && !path.search) {
+      return;
+    }
     setloading(true);
     try {
       const searchPath = path.search.slice(8);
       const url = `${import.meta.env.VITE_URL}/post?search=${searchPath}`;
       const res = await axios.get(url);
-      setposts(res.data.data);
+      dispatch(setBlogdata({blogdata:res.data.data}));
       
     } catch (error) {
       console.error(error);
   }
     setloading(false);
   };
-  useEffect(() => {
-    fetchPost();
-  }, []);
+
 
   useEffect(() => {
     searchPost();
   }, [path]);
 
-   
   return (
+    <MaxWidthWrapper>
     <div>
-      {posts.length === 0 && (
+      {blogdata?.length === 0 && (
         <div className="text-[20px] font-[500] text-second_colour mt-[20px] min-hight ">
-          No blog found for "{path.search.slice(8)}" or Loading..
+          No blog found for "{path.search.slice(8)}" 
         </div>
       )}
    
@@ -60,7 +52,7 @@ const AllArticles = () => {
         <div className="flex flex-col sm:flex-row justify-between sm:mx-28 mx-2 gap-[25px]">
         <Cetagory />
         <div className="flex flex-col items-center gap-4 min-w-[200px] mt-5 min-hight">
-          {posts.map((data, index) => (
+          {blogdata?.map((data, index) => (
             <Link
               key={index}
               to={`/article/${data._id}`}
@@ -71,16 +63,17 @@ const AllArticles = () => {
                   <img
                     className="w-full h-full object-cover object-center items-center"
                     src={data.image}
+                    loading="lazy"
                     alt={data.title}
                   />
                 </div>
                 <div className="flex flex-col justify-between p-2 sm:p-5 gap-2">
                   <div>
-                    <h1 className="text-[16px] sm:text-[22px] font-[700] text-third_colour sm:min-w-[600px] min-w-auto">
+                    <h1 className="text-[16px] sm:text-[20px] font-[700] text-third_colour sm:min-w-[600px] min-w-auto">
                       {data.title.slice(0)}
                     </h1>
-                    <p className="text-[10px] sm:text-[17px] font-[500] text-second_colour opacity-90">
-                      {stripHtml(data.description).result.slice(0, 78)} ...{" "}
+                    <p className="text-[10px] sm:text-[14px] font-[500] text-second_colour opacity-90">
+                      {stripHtml(data.description).result.slice(0, 100)} ...{" "}
                       <span className="text-first_colour font-[400] ">
                         read more
                       </span>
@@ -107,6 +100,7 @@ const AllArticles = () => {
         </div></div>
       )}
     </div>
+    </MaxWidthWrapper>
   );
   
   

@@ -6,6 +6,7 @@ import { Cetagory, Loading } from "../index";
 import { useSelector } from "react-redux";
 import { dotsicon, trash, update } from "../assets/assets";
 import {toast} from 'react-toastify';
+import MaxWidthWrapper from "../component/MaxWidthWrapper";
 
 
 const Article = () => {
@@ -69,6 +70,7 @@ const Article = () => {
   }
 
   return (
+    <MaxWidthWrapper>
     <div className="flex justify-around sm:mx-28 mx-2 ">
       <Cetagory data={post.category} />
       <div className="sm:w-[60%] w-auto px-3 md:px-[200px] mt-8 rounded-[7px] shadow ">
@@ -143,6 +145,7 @@ const Article = () => {
         <div className="flex items-center mt-8 space-x-4 font-semibold"></div>
       </div>
     </div>
+    </MaxWidthWrapper>
   );
 };
 
