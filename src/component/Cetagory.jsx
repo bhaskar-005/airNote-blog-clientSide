@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Cetagory = ({ data }) => {
   return (
-    <div className="relative sm:block hidden">
+    <div className="relative xl:block hidden">
       <div className="p-4 sm:p-8 mt-10 shadow min-w-[300px] min-h-[550px] lg:min-w-[400px] sticky bg-[#E5F7FF] lg:sticky right-0 top-0 rounded-xl">
         <h1 className="text-[22.5px] font-[700] text-third_colour">Tranding:</h1>
         <div>
