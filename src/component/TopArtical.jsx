@@ -10,8 +10,8 @@ const TopArticle = ({posts,loading}) => {
     <div className=" flex flex-col bg-[#f2faff] rounded-xl shadow py-8 gap-10">
      {!posts ? (
        
-       <div className='flex flex-wrap sm:gap-8 gap-4 justify-center items-center '>
-          <Loading/> 
+       <div className='flex flex-wrap sm:gap-8 gap-4 justify-center items-center min-h-[400px] '>
+          <div className='loader'></div> 
       </div>
      ):(
       <>
